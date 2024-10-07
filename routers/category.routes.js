@@ -7,5 +7,9 @@ module.exports = (app) => {
     categoryController.createNewCategory
   );
 
- 
+  app.get(
+    "/ecomm/api/v1/showAllcategories",
+    [auth.verifyToken],
+    categoryController.showAllItems
+  );
 };
