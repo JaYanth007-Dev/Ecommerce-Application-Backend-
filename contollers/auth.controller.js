@@ -45,4 +45,15 @@ exports.signin = async (req, res) => {
     accessToken: token,
   });
 };
-
+exports.showAllUsers = async(req, res) => {
+  try {
+    const allUsers = await user_model.find();
+    res.status(200).send(allUsers)
+  }
+  catch (e) {
+    res.status(500).send({
+      message:"Error to fetch all users"
+    })
+    console.log("Error while fetching all users",e);
+  }
+}

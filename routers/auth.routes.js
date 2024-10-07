@@ -13,6 +13,9 @@ module.exports = (app) => {
         authController.signin
   )
   
-  
+  app.get("/ecomm/api/v1/auth/showUsers",
+    [authMW.verifyToken, authMW.isAdmin],
+    authController.showAllUsers
+  )
 };
 
