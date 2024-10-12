@@ -5,7 +5,13 @@ const jwt = require("jsonwebtoken");
 
 exports.signup = async (req, res) => {
   const request_body = req.body;
-  console.log("Req......", req.body);
+  // console.log("Req......", req.body);
+  if (request_body.userType == "ADMIN") {
+    res.status(401).send({
+      message: "User should not be the admin...."
+    })
+    return
+  }
   const user_object = {
     name: request_body.name,
     email: request_body.email,

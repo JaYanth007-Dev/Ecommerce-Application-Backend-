@@ -24,13 +24,14 @@ db.once("open", () => {
 
 async function init() {
   try {
-    const user = await user_model.findOne({ userType: "admin" });
+    const user = await user_model.findOne({ userType: "ADMIN" });
     if (user) {
       console.log("Admin user already exists");
       return;
     }
   } catch (error) {
     console.log("Error while reading a user", error);
+    return
   }
 
   const userDetails = {

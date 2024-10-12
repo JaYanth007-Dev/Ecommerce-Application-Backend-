@@ -1,3 +1,3 @@
 module.exports = {
-    secret:"My ecommerce application"
-}
+  secret: "My ecommerce application007@",
+};
